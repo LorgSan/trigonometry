@@ -91,7 +91,7 @@ public class GizmosDraw : MonoBehaviour
     }
 
     public GameObject SphereParent;
-    public void Rotator()
+    public void Rotator() //this thing just rotates the parent of all the spheres through eulerangles
     {
         Vector3 currentEulerAngles = SphereParent.transform.eulerAngles;
         currentEulerAngles.z += Time.deltaTime * rotationSpeed;
@@ -122,13 +122,13 @@ public class GizmosDraw : MonoBehaviour
             {
                 //Debug.Log(Sphere.name);
                 //Debug.Log(hitSpheresCount);
-                hitSpheresCount = 0;
-                score = score + SpheresCreated.Count;
+                hitSpheresCount = 0; //basically reset everything
+                score = score + SpheresCreated.Count; //update score
                 timer = 0;
-                StopCoroutine("SpawnDelay");
+                StopCoroutine("SpawnDelay"); //stop the coroutine!
                 CoroutineRunning = false;
-                ClearSpheres();
-                SpawnSphereToHit();
+                ClearSpheres(); //destroy all prevoius spheres
+                SpawnSphereToHit(); //and spawn the spehres again
             }
     }
 
